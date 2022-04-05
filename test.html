@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async test</title>
+</head>
+
+<body>
+
+    <script>
+        const answer = function () {
+            alert("📞 Hello?")
+        }
+        const angryAnswer = function () {
+            alert("📞 WHATT???")
+        }
+        const suspiciousAnswer = function () {
+            alert("📞 Who's there...?")
+        }
+
+
+        const callFriend = function (callback) {
+            const randTime = Math.floor(Math.random() * 3000)
+
+            setTimeout(function () {
+                // if (emotion === "angry") {
+                //     angryAnswer()
+                // } else if (emotion === "suspicious") {
+                //     suspiciousAnswer()
+                // } else {
+                //     answer()
+                // }
+
+                callback() // answer(), angryAnswer(), suspiciousAnswer()
+            }, randTime)
+
+            console.log("Phone is ringing... ☎")
+        }
+
+        // callFriend(answer)
+        // callFriend(angryAnswer)
+        // callFriend(suspiciousAnswer)
+
+        const greet = function (placeholder) {
+            console.log("HELLO " + placeholder)
+        }
+
+        // greet("Raeven")
+        // greet("Ahmed")
+
+        const promise1 = new Promise((resolve, reject) => {
+            const error = false
+            setTimeout(() => {
+                if (error) {
+                    reject("Huston we have a problem!")
+                } else {
+                    resolve("foo")
+                }
+            }, 1500);
+
+        });
+
+        promise1
+            .then(resolvedMessage => console.log(resolvedMessage))
+            .catch(errorMessage => console.log("ERROR", errorMessage))
+
+    //resolvedMEssage and errorMessage represent just the strings passed into
+    //the resolve() and reject() functions from the Promise context
+    </script>
+
+
+
+</body>
+
+</html>
